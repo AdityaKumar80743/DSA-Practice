@@ -34,7 +34,14 @@ This repo contains all the problems I practice daily, organized by topic/day.
   - Reverse a vector/array  
   - Palindrome check  
   - Fibonacci numbers  
-- Key Learning: Recursion works best when the **base case** and **recursive step** are clear.  
+- Key Learning: Recursion works best when the **base case** and **recursive step** are clear.
+
+### Day 4 - Hashing
+- problems solved using hashing:
+  - hashing theory
+  - count frequency
+  - lowest / highest frequency
+- Key Learning: Hashing reduces recheck and can be very useful for repeating dig data.
 
 ---
 
@@ -46,7 +53,8 @@ This repo contains all the problems I practice daily, organized by topic/day.
 ## ✨ Reflections
 - **Day 1**: Functions make code reusable and reduce repetition.  
 - **Day 2**: Math problems become easy once you break them down into smaller operations.  
-- **Day 3**: Recursion is powerful but needs careful handling of base cases to avoid infinite loops.  
+- **Day 3**: Recursion is powerful but needs careful handling of base cases to avoid infinite loops.
+- **Day 4**: hashing can used to store frequencies, which can be used to compare the data and derive conclusions.
 
 ---
 
