@@ -43,6 +43,15 @@ This repo contains all the problems I practice daily, organized by topic/day.
   - lowest / highest frequency
 - Key Learning: Hashing reduces recheck and can be very useful for repeating dig data.
 
+### Day 5 - Sorting
+- sorting algorithms
+  - selection sort
+  - bubble sort
+  - insertion sort
+  - merge sort
+  - quick sort
+- Key Learning: first three algorithms are important for understanding the core logic behind sorting and other algo's are for better efficiency
+
 ---
 
 
@@ -55,6 +64,7 @@ This repo contains all the problems I practice daily, organized by topic/day.
 - **Day 2**: Math problems become easy once you break them down into smaller operations.  
 - **Day 3**: Recursion is powerful but needs careful handling of base cases to avoid infinite loops.
 - **Day 4**: hashing can used to store frequencies, which can be used to compare the data and derive conclusions.
+- **Day 5**: time and space complexity are important to understand as we write codes. it helps in better efficiency and fast output
 
 ---
 
