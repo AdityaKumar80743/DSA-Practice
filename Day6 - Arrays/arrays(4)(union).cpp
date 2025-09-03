@@ -1,6 +1,7 @@
 #include <iostream>
 #include <set>
 #include <vector>
+#include <map>
 
 using namespace std;
 
@@ -13,6 +14,12 @@ void printS(set<int> &mset) {
 // print vector till n
 void print(vector<int> &arr, int n) {
     for (auto i=0; i<n; i++) cout << arr[i] << " ";
+    cout << endl;
+}
+
+// print map till n
+void printM(map<int,int> &mpp) {
+    for (auto it:mpp) cout << it.first << " ";
     cout << endl;
 }
 
@@ -86,11 +93,11 @@ void unionArr3(vector<int> a1, vector<int> a2) {
     
     while (i<n1 && j<n2) { // until pointer are smaller then the arrays size
         if (a1[i] <= a2[j]) { // pick smallest among a1[i] and a2[j]
-            if (uniArr.size() == 0 || uniArr.back() != a1[i]) { // if last elem in uniArr not equal to smallest then puch smallest else move pointer
+            if (uniArr.size() == 0 || uniArr.back() != a1[i]) { // if last elem in uniArr not equal to smallest then push smallest else move pointer
                 uniArr.push_back(a1[i]);
             } i++;
         }
-        else (a1[i] <= a2[j]) {
+        else if (a1[i] > a2[j]) {
             if (uniArr.size() == 0 || uniArr.back() != a2[j]) {
                 uniArr.push_back(a2[j]);
             } j++;
@@ -114,11 +121,50 @@ void unionArr3(vector<int> a1, vector<int> a2) {
 }
 
 
+// --------------- INTERSECTION OF TWO ARRAYS -------------
+
+// --- burute force approach
+// using set 
+void intersection(vector<int> ao, vector<int> at) {
+    set<int> intersect;
+    
+    for (int i=0; i<ao.size(); i++) {
+        for (int j=0; j<at.size(); j++) {
+            if (ao[i] == at[j]) intersect.insert(ao[i]);
+        }
+    }
+    printS(intersect);
+}
+// TC - O(n^2)
+// SC - O(n)
+
+// --- optimal 
+// similar to union - slight logical change
+void intersection(int a1[], int a2[], int n1, int n2) {
+    int i = 0;
+    int j = 0;
+    vector<int> res;
+
+    while (i<n1 && j<n2) {
+        if (a1[i] < a2[j]) i++;
+        else if (a2[j] < a1[i]) j++;
+        else {
+            res.push_back(a1[i]);
+            i++;
+            j++;
+        }    
+    }
+    print(res, res.size());
+}
+//TC - O(n1 + n2)
+// SC - O(n1 + n2)
+
+
 int main() {
     int arr1[5] = {1,2,3,4,5};
     int arr2[3] = {1,2,6};
 
-    uni2(arr1, arr2, 5,3);
+    intersection(arr1, arr2, 5,3);
 
 
     return 0;
