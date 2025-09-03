@@ -187,7 +187,8 @@ void removeDuplicates3(int arr[], int n) {
     }
     printArray(arr, pointer);
 }
-
+// TC - O(n)
+// SC - O(1) - for solving
 
 int main() {
     int arr[10] = {1,2,2,3,4,5,5,5,5,6};
