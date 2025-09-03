@@ -52,6 +52,20 @@ This repo contains all the problems I practice daily, organized by topic/day.
   - quick sort
 - Key Learning: first three algorithms are important for understanding the core logic behind sorting and other algo's are for better efficiency
 
+### Day 6 - Arrays
+- basic problems
+  - largest element
+  - second largest element
+  - check if array is sorted
+  - remove duplicates for the array (sorted/ unsorted)
+- Key Learning: arrays are the most important data types i have came accross so far, and these simple problems are easy but imporant
+  
+### Day 7 - Rotate an Array
+- rotate by 1 place and D places
+  - brute force O(n-d)
+  - better approach O(n)
+  - optimal approach O(n) , space O(1)
+- Key Learning: brute forces are easy to understand and write but there are much better ways for solving the problem.
 ---
 
 
@@ -65,6 +79,8 @@ This repo contains all the problems I practice daily, organized by topic/day.
 - **Day 3**: Recursion is powerful but needs careful handling of base cases to avoid infinite loops.
 - **Day 4**: hashing can used to store frequencies, which can be used to compare the data and derive conclusions.
 - **Day 5**: time and space complexity are important to understand as we write codes. it helps in better efficiency and fast output
+- **Day 6**: using pointer are better than creating other arrays.
+- **Day 7**: there alwasy exist a better soluiton just have to try harder.
 
 ---
 
