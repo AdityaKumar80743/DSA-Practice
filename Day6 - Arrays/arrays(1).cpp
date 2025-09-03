@@ -36,7 +36,7 @@ bool isSorted(int arr[], int n) {
     return true;
 }
 
-// remove duplicates
+// remove duplicates - using another array
 void removeDuplicates(int arrr[], int n) {
     int arr[n];
     for (int i=0; i<n; i++) {
@@ -59,4 +59,18 @@ void removeDuplicates(int arrr[], int n) {
     }
     cout << endl;
 }
+
+// Remove duplicates - better
+void removeDuplicates(vector<int> arr, int n) {
+    int pointer = 0;
+    for (int i=0; i<n; i++) {
+        if (arr[i] != arr[i+1]) {
+            swap(arr[pointer], arr[i]);
+            pointer++;
+        }
+    }
+    print(arr,pointer);
+}
+// pointer tracks how many unique values are there and place then in order by swaping 
+
 
