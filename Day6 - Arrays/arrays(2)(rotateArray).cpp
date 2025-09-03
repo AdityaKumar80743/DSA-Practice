@@ -1,52 +1,83 @@
-// left rotate a array by one place
-void leftRotate(vector<int> arr, int n) {
-    int temp = arr[0];
-    for (int i=0; i<=n-2; i++) {
-        arr[i] = arr[i+1];      
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+// print array till n
+void print(int arr[], int n) {
+    for (int i=0; i<n; i++) {
+        cout << arr[i] << " ";
     }
-    arr[n-1] = temp;
-    print(arr, n);
-}
-    
-// to solve the above problem we are using O(1) extra space - but for solving the problem whole we are taking O(N) space -- size of the arr   
-// Always specify the SC - extra spcae or - space taken to solve the problem
-    
-    
-// Left rotate the array by D places
-// brute force 
-void leftRotateD(vector<int> arr, int n, int d) {
-    d = d % n; // optimisation d will not be > than n
-    for (int i=0; i<d; i++) {
-        int temp = arr[0];
-        for (int j=0; j<=n-2; j++) {
-            arr[j] = arr[j+1];
-        }
-        arr[n-1] = temp;
-    }
-    print(arr, n);
 }
 
-// better
-void leftRotateD2(vector<int> arr, int n, int d) {
-    d = d % n;
-    
-    vector<int> temp; 
-    for (int i=0; i<d; i++) {
-        temp.push_back(arr[i]);       
+// print vector till n
+void printM(vector<int> &arr, int n) {
+    for (auto i=0; i<n; i++) cout << arr[i] << " ";
+    cout << endl;
+}
+
+// ------------ LEFT ROATATE ARRAY BY ONE PLACE------------
+// shifting
+void rotateArray(int arr[], int n) {
+    int temp = arr[0]; // store fist element 
+
+    for (int i=0; i<n-1; i++) {
+        arr[i] = arr[i+1]; // shift the element to the left by one position
     }
-    
+    arr[n-1] = temp; // place the first element at the last
+    print(arr, n);
+}
+// to solve the above problem we are using O(1) space 
+// - but for solving the problem whole we are taking O(N) space -- size of the arr   
+// Always specify the SC in space taken to solve the problem
+// not space taken to return or dispaly the result
+
+
+
+// --------------- LEFT ROTATE THE ARRAY TO D PLACES ----------   
+
+// --- brute force use left rotate by one position n times
+void leftRotateD(int arr[], int n, int d) {
+    d %= n; // avoid extra roations of array 
+    // if d > n then d restart from 1
+    // d will not be greater than n 
+
+    for (int i=0; i<d; i++) {
+        rotateArray(arr, n);
+    }
+}
+// TC - O(n^2)
+// SC - O(1)
+
+// --- better
+// using another array
+void leftRotateD2(int arr[], int n, int d) {
+    d %= n; // optimisation d will not be > n
+    vector<int> res; // stores the result 
+
+    // place the elemetns from D at the start in order
     for (int i=d; i<n; i++) {
-        arr[i-d] = arr[i];
+        res.emplace_back(arr[i]); 
     }
-    
-    for (int i=n-d; i<n; i++) {
-        arr[i] = temp[i - (n-d)];
+    // place the elements from 0 to d after d  postion
+    for (int i=0; i<d; i++) {
+        res.emplace_back(arr[i]);
     }
-    
-    print(arr, n);
+    printM(res, n);
 }
+// TC - O(n)
+// SC - O(n)
 
-// optimal
+// --- optimal
+// divide the array in two halves 
+// 1st 0 to d
+// 2nd d+1 to n
+// reverse both halves and then reverse the whole array
+
+// for reverse use STL or make reverse function
+
+// reverse 
 void reverse1(vector<int> &arr, int start, int end) {
     while (start < end) {
         swap(arr[start], arr[end]);
@@ -55,19 +86,21 @@ void reverse1(vector<int> &arr, int start, int end) {
     }
 }
 
-void leftRotateD3(vector<int> arr, int n, int d) {
-    reverse(arr.begin(), arr.begin()+d); // part that will be on right after rotation
-    reverse(arr.begin()+d, arr.end()); // part that will be on left
-    reverse(arr.begin(), arr.end()); // reverse the while array
-    
+void leftRotateD3(int arr[], int n, int d) {
+    d %= n; // handle overlfow of d 
+    reverse(arr, arr + d); // reverse left half
+    reverse(arr + d, arr + n); // revere right half
+    reverse(arr, arr + n); // reverse whole array
     print(arr, n);
 }
-
-// TC - O(2n) - O(N)
+// TC - O(2n) 
 // SC - O(1)
-// make costom function to reverse if not to use stl;
+
+int main() {
+    int arr[5] = {1,2,3,4,5};
+
+    leftRotateD3(arr, 5, 8);
 
 
-// Move all the zeros to end of the array
-// brute force -
-// sort and reverse
+    return 0;
+}
