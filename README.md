@@ -66,7 +66,8 @@ This repo contains all the problems I practice daily, organized by topic/day.
   - better approach O(n)
   - optimal approach O(n) , space O(1)
 - Key Learning: brute forces are easy to understand and write but there are much better ways for solving the problem.
-- LINK: https://github.com/AdityaKumar80743/DSA-Practice/blob/main/Day6%20-%20Arrays/arrays(2)(rotateArray).cpp
+- LINK: [https://github.com/AdityaKumar80743/DSA-Practice/blob/main/Day6%20-%20Arrays/arrays(2)(rotateArray).cpp](#file)
+- 
 ---
 
 
