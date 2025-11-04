@@ -1,0 +1,3 @@
+stings problems
+- basic and easy
+- medium level problems
